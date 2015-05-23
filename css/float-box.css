@@ -1,0 +1,29 @@
+.floatBox
+{
+    position: fixed;    
+    padding: 10px;
+    bottom: 10px;
+    right: 10px ;
+    display: none;
+    background: #D3D0D4;
+    border: 1px solid #4F4F4F;
+    border-radius: 20px;
+    z-index: 100;
+    width: 300px;
+}
+
+
+
+.floatBoxClose {
+    font-size:20px;  
+    line-height:15px;  
+    right:-5px;  
+    top:-5px;  
+    position:absolute;  
+    color:#6fa5e2;  
+    font-weight:500;      
+}
+
+.floatBoxClose img {
+    width: 20px;
+}
