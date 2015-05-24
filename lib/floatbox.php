@@ -8,11 +8,18 @@ class FloatBox
 {
     static $version = "0.0.1";
 
-    $options = array('floatbox-content' =>  "Hello world!");;
+    static $default_options = array('floatbox-content' =>  "Hello world!");
 
     function __construct()
     {
-        $this->options = get_option( 'floatbox' );
+        $this->options = get_option("fluxbox");
+        // if(! isset($options_record) or empty($options_record)){
+        //     update_option("fluxbox", $this->options );
+        //     $options_record = $this->options;
+        // }
+        // $this->options = $options_record;
+        
+        
         add_action( 'init', array( $this, 'init' ) );
         //add_action( 'wp_footer', array( $this, 'load_js' ), 100 );
     }
@@ -48,7 +55,7 @@ class FloatBox
 
     public function install()
     {
-        update_option( 'fluxbox_version', self::$version );
-        add_option( 'fluxbox', self::$options );
+        update_option( 'floatbox_version', self::$version );
+        add_option( 'floatbox', self::$default_options );
     }
 }
