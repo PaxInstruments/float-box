@@ -26,11 +26,18 @@ class FloatBox
 
     public function init()
     {
-        add_action('wp_footer', array($this, 'load_assets') );
+        add_action('wp_enqueue_scripts', array($this, 'load_css') );
+        add_action('wp_footer', array($this, 'load_js') );
         add_action('wp_footer', array($this, 'draw_floatbox') );
     }
 
-    public function load_assets()
+    public function load_css()
+    {
+        wp_enqueue_style('floatbox_style', plugins_url( '../css/float-box.css', __FILE__ ) );
+        //self::draw_floatbox();
+    }
+
+    public function load_js()
     {
         $post = get_post();
         #if($post->post_title != 'Home') return;
