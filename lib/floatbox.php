@@ -26,10 +26,11 @@ class FloatBox
 
     public function init()
     {
-        add_action('wp_head', array($this, 'load_js') );
+        add_action('wp_enqueue_scripts', array($this, 'load_assets') );
+        add_action('wp_footer', array($this, 'draw_floatbox') );
     }
 
-    public function load_js()
+    public function load_assets()
     {
         $post = get_post();
         #if($post->post_title != 'Home') return;
@@ -37,7 +38,7 @@ class FloatBox
         wp_enqueue_style('floatbox_style', plugins_url( '../css/float-box.css', __FILE__ ) );
         wp_register_script('draw_floatbox', plugins_url( '../js/draw_floatbox.js', __FILE__ ),  array( 'jquery' ) );
         wp_enqueue_script('draw_floatbox');
-        self::draw_floatbox();
+        //self::draw_floatbox();
     }
 
     public function draw_floatbox()
