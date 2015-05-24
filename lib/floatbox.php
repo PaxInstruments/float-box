@@ -12,7 +12,7 @@ class FloatBox
 
     function __construct()
     {
-        $this->options = get_option("fluxbox");
+        $this->options = get_option("floatbox");
         // if(! isset($options_record) or empty($options_record)){
         //     update_option("fluxbox", $this->options );
         //     $options_record = $this->options;
