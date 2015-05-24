@@ -6,8 +6,9 @@
 */
 class FloatBox 
 {
-    protected $options;
     static $version = "0.0.1";
+
+    $options = array('floatbox-content' =>  "Hello world!");;
 
     function __construct()
     {

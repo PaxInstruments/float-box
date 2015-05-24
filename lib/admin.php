@@ -1,14 +1,10 @@
 <?php
 
 class FloatBoxAdmin {
+  protected $options;
 
   public function __construct() {
     $this->options = get_option( 'floatbox' );
-
-    if( get_option( 'floatbox' ) === null or empty(get_option( 'floatbox' )) ){
-        $this->options =  array('floatbox-content' =>  "Hello world!");
-
-    }
 
     add_action( 'admin_init', array( $this, 'admin_init' ) );
     add_action( 'admin_menu', array( $this, 'floatbox_admin_menu' ) );
