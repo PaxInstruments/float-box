@@ -22,7 +22,7 @@ class FloatBox
     public function load_js()
     {
         $post = get_post();
-        if($post->post_title != 'Home') return;
+        #if($post->post_title != 'Home') return;
         //print "loaded:<pre>".FLOATBOX_PATH.'js/draw_floatbox.js'."</pre>";
         wp_enqueue_style('floatbox_style', plugins_url( '../css/float-box.css', __FILE__ ) );
         wp_register_script('draw_floatbox', plugins_url( '../js/draw_floatbox.js', __FILE__ ),  array( 'jquery' ) );

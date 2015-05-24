@@ -5,7 +5,8 @@
     bottom: 10px;
     right: 10px ;
     display: none;
-    background: #D3D0D4;
+    /* background: #D3D0D4; */
+    background: #EEF9FD;
     border: 1px solid #4F4F4F;
     border-radius: 20px;
     z-index: 100;

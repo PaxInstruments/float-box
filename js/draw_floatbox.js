@@ -1,4 +1,7 @@
 
+jQuery(window).load(function() {
+    jQuery(".floatBox").hide();
+});
 
 jQuery(window).scroll(function(e){
     var scrollPercentage = ( jQuery(this).scrollTop() + jQuery(this).height() ) / jQuery('body').height();
