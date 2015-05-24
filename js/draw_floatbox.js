@@ -11,7 +11,7 @@ jQuery(window).scroll(function(e){
     }
 });
 
-jQuery(".floatBoxClose").click(function(){
+jQuery(".floatBoxClose").click(function(e){
     jQuery(".floatBox").fadeOut("fast");
     jQuery(".floatBox").data('box_is_closed', true);
     setCookie("subscribe_box_closed", 1, 1);

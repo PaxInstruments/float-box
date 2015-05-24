@@ -26,7 +26,7 @@ class FloatBox
 
     public function init()
     {
-        add_action('wp_enqueue_scripts', array($this, 'load_assets') );
+        add_action('wp_footer', array($this, 'load_assets') );
         add_action('wp_footer', array($this, 'draw_floatbox') );
     }
 
