@@ -5,8 +5,8 @@ jQuery(window).load(function() {
 
 jQuery(window).scroll(function(e){
     var scrollPercentage = ( jQuery(this).scrollTop() + jQuery(this).height() ) / jQuery('body').height();
-    if(scrollPercentage > 0.5 && getCookie('subscribe_box_closed') != 1){
-    //if(scrollPercentage > 0.5 &&  jQuery(".floatBox").data('box_is_closed') != true ){
+    //if(scrollPercentage > 0.5 && getCookie('subscribe_box_closed') != 1){
+    if(scrollPercentage > 0.5 &&  jQuery(".floatBox").data('box_is_closed') != true ){
         jQuery(".floatBox").fadeIn("slow");
     }
 });

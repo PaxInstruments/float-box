@@ -16,11 +16,8 @@ class FloatBoxAdmin {
       add_settings_section( 'floatbox_content_section',
          'Content Settings', 
          array( $this, 'init_default_settings' ), 'floatbox' );
-      add_settings_field( 'floatbox_content', 
-        'Floatbox Content', 
-        array( $this, 'floatbox_content_textarea' ), 
-        'floatbox', 
-        'floatbox_content_section' );
+      add_settings_field( 'floatbox_style', 'Floatbox Style', array( $this, 'floatbox_style_textarea' ), 'floatbox', 'floatbox_content_section' );
+      add_settings_field( 'floatbox_content', 'Floatbox Content', array( $this, 'floatbox_content_textarea' ), 'floatbox', 'floatbox_content_section' );
   }
 
   function init_default_settings() {
@@ -57,6 +54,11 @@ class FloatBoxAdmin {
 
       //$inputs['url'] = untrailingslashit( $inputs['url'] );
       return $inputs;
+  }
+
+  public function floatbox_style_textarea()
+  {
+       self::text_area( 'floatbox-style', 'The style of the floatbox.' );
   }
 
   public function floatbox_content_textarea()

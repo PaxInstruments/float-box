@@ -8,16 +8,19 @@ class FloatBox
 {
     static $version = "0.0.1";
 
-    static $default_options = array('floatbox-content' =>  "Hello world!");
+    static $default_options = array(
+        'floatbox-content' =>  "Hello world!",
+        'floatbox-style' => "" );
 
     function __construct()
     {
         $this->options = get_option("floatbox");
-        // if(! isset($options_record) or empty($options_record)){
-        //     update_option("fluxbox", $this->options );
-        //     $options_record = $this->options;
-        // }
-        // $this->options = $options_record;
+
+        if(empty($this->options['floatbox-style'])){
+            $this->options['floatbox-style'] = file_get_contents(FLOATBOX_PATH."/css/float-box.css");
+            update_option("floatbox", $this->options);
+        }
+        
         
         
         add_action( 'init', array( $this, 'init' ) );
@@ -27,6 +30,7 @@ class FloatBox
     public function init()
     {
         add_action('wp_enqueue_scripts', array($this, 'load_css') );
+        //add_action('wp_head', array($this, 'load_css') );
         add_action('wp_footer', array($this, 'load_js') );
         add_action('wp_footer', array($this, 'draw_floatbox') );
     }
@@ -34,15 +38,15 @@ class FloatBox
     public function load_css()
     {
         wp_enqueue_style('floatbox_style', plugins_url( '../css/float-box.css', __FILE__ ) );
+        wp_enqueue_style('floatbox_style_custom', plugins_url( 'dynamic_style.php', __FILE__ ) );
         //self::draw_floatbox();
     }
 
     public function load_js()
     {
-        $post = get_post();
+        //$post = get_post();
         #if($post->post_title != 'Home') return;
-        //print "loaded:<pre>".FLOATBOX_PATH.'js/draw_floatbox.js'."</pre>";
-        wp_enqueue_style('floatbox_style', plugins_url( '../css/float-box.css', __FILE__ ) );
+
         wp_register_script('draw_floatbox', plugins_url( '../js/draw_floatbox.js', __FILE__ ),  array( 'jquery' ) );
         wp_enqueue_script('draw_floatbox');
         //self::draw_floatbox();
